@@ -7,6 +7,10 @@ CORS(app)
 
 ytmusic = YTMusic()
 
+@app.route('/')
+def home():
+    return jsonify({"message": "🎶 Delulufy YTMusic API is running!"})
+
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('query')
@@ -14,8 +18,3 @@ def search():
         return jsonify({'error': 'Missing query parameter'}), 400
     results = ytmusic.search(query)
     return jsonify(results)
-
-@app.route('/')
-def home():
-    return jsonify({"message": "Delulufy YTMusic API is running!"})
-
