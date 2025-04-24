@@ -1,3 +1,4 @@
 Flask
 ytmusicapi
 flask-cors
+gunicorn
